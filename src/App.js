@@ -1,24 +1,28 @@
+import React from "react";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-            
-         Weather App
+      <h1>Weather App</h1>
       
-       <footer>
-        This project was coded by Karina and is open-sourced 
+      <footer>
+        This project was coded by Karina and is open-sourced{" "}
         <a
           className="App-link"
           href="https://github.com/KarinaV-cyber/stormy-weather"
-                    target="_blank"
+          target="_blank"
           rel="noopener noreferrer"
         >
-        {""} on GitHub 
+          on GitHub
         </a>
-     </footer>
-   </div>);}
-  
-
+      </footer>
+    </div>
+  );
+}
 
 export default App;
+
+
+
+
