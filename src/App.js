@@ -3,19 +3,22 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-             <h1>
+            
          Weather App
-        </h1>
+      
+       <footer>
+        This project was coded by Karina and is open-sourced 
         <a
           className="App-link"
-                  target="_blank"
+          href="https://github.com/KarinaV-cyber/stormy-weather"
+                    target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+        {""} on GitHub 
         </a>
-    
-    </div>
-  );
-}
+     </footer>
+   </div>);}
+  
+
 
 export default App;
