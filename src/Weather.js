@@ -41,25 +41,24 @@ export default function Weather (props){
            </div>
            </div>
             </form>
-       <h1 className="mb-2 ml-5 mt-3">Lisbon</h1>
+       <h1 className="mb-2 ml-5 mt-3">{weatherData.city}</h1>
        <ul>
-        <li>Wednesday 07:00 </li>
-          <li>Mostly Cloudy </li>
+        <li>{weatherData.date}</li>
+          <li className="text-capitalize">{weatherData.description}</li>
        </ul>
        <div className="row">
         <div className="col-6">
-                       <img src="https://www.gstatic.com/weather/conditions/v1/svg/sunny_light.svg" alt="Mostly cloudy" className="float-left mb-4"/>
+                       <img src={weatherData.iconUrl} alt={weatherData.description} className="float-left mb-4"/>
       
-         <span className="temperature">6</span>
+         <span className="temperature">{Math.round(weatherData.temperature)}</span>
            <span className="unit mb-5 fs-5">&deg;C</span>
  </div>
          
       
         <div className="col-6">
             <ul>
-                <li>Precipitation: 25%</li>
-                <li> Wind: 13 km/h%</li>
-                <li>Humidity: 72% </li>
+                <li>Humidity: {weatherData.humidity}%</li>
+                <li> Wind:{weatherData.wind}%</li>
             </ul>
           
         </div>
