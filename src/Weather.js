@@ -1,8 +1,35 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import "./Weather.css";
 
 
-export default function Weather (){
+export default function Weather (props){
+    const [weatherData, setWeatherData] = useState({ ready: false });
+
+  function handleResponse(response) {
+      console.log("API response:", response.data);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      date: "Wednesday 07:00",
+      description: response.data.condition.description,
+      iconUrl: response.data.condition.icon_url,
+      wind: response.data.wind.speed,
+      city: response.data.city,
+    });
+  }
+
+  useEffect(() => {
+    const apiKey = "oa13410f1922d7b4t12b44ae83ead081";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }, [props.defaultCity]);
+
+  if (!weatherData.ready) {
+    return <p>Loading...</p>;
+  }
     return <div className="Weather">
         <form className="mt-3">
             <div className="row">
@@ -24,7 +51,7 @@ export default function Weather (){
                        <img src="https://www.gstatic.com/weather/conditions/v1/svg/sunny_light.svg" alt="Mostly cloudy" className="float-left mb-4"/>
       
          <span className="temperature">6</span>
-           <span className="unit mb-5">&deg; C</span>
+           <span className="unit mb-5 fs-5">&deg;C</span>
  </div>
          
       
